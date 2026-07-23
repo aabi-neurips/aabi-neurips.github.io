@@ -2,7 +2,7 @@
 
 Official website for the NeurIPS 2026 Workshop on AI Agents for Biomedical Imaging and
 Multimodal Clinical Data, in collaboration with the [MELBA journal](https://www.melba-journal.org/).
-Hosted on GitHub Pages at <https://agentic-biomed.github.io>.
+Hosted on GitHub Pages at <https://aabi-neurips.github.io>.
 
 ## Structure
 
@@ -38,7 +38,7 @@ Then open <http://localhost:8000>.
 ## Deploy
 
 Pushing to the `main` branch automatically publishes the site via GitHub Pages
-(because the repository is named `agentic-biomed.github.io`).
+(because the repository is named `aabi-neurips.github.io`).
 
 ## Key dates currently on the site
 
