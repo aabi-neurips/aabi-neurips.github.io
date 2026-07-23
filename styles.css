@@ -1,0 +1,619 @@
+/* =====================================================================
+   NeurIPS 2026 Workshop — AI Agents for Biomedical Imaging and
+   Multimodal Clinical Data. In collaboration with MELBA.
+   Design language follows genai4health.github.io:
+   fixed dark navbar, full-viewport dark hero, blue #2563eb primary,
+   amber #f59e0b accent, Raleway + Open Sans.
+   Plain CSS, no build system. Edit the variables below to re-theme.
+   ===================================================================== */
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --accent: #f59e0b;
+  --accent-dark: #d97706;
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
+  --white: #ffffff;
+  --max-width: 1080px;
+  --font-heading: "Raleway", "Segoe UI", Arial, sans-serif;
+  --font-body: "Open Sans", "Segoe UI", Arial, sans-serif;
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --radius: 0.75rem;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+section[id] { scroll-margin-top: 4.5rem; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--gray-700);
+  background: var(--white);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+h1, h2, h3 { font-family: var(--font-heading); line-height: 1.25; color: var(--gray-900); }
+
+h3 { font-size: 1.15rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+
+p { margin-bottom: 1rem; }
+
+a { color: var(--primary); text-decoration: none; transition: color 0.2s ease; }
+a:hover { color: var(--primary-dark); text-decoration: underline; }
+
+ul { margin: 0 0 1rem 1.4rem; }
+li { margin-bottom: 0.4rem; }
+
+.note { color: var(--gray-500); }
+
+/* Section titles with gradient underline (genai4health style) */
+.section-title {
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 4px;
+  margin: 0.75rem auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--gray-500);
+  max-width: 720px;
+  margin: 0 auto 2rem;
+}
+
+/* ===================== Navigation ===================== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  background: rgba(0, 0, 0, 0.9);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  box-shadow: var(--shadow-md);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+}
+
+.brand { display: flex; align-items: center; text-decoration: none; transition: opacity 0.15s ease-in-out; }
+.brand:hover { text-decoration: none; opacity: 0.8; }
+.nav-logo-img { height: 55px; width: auto; object-fit: contain; display: block; }
+
+.site-nav { display: flex; flex-wrap: wrap; gap: 0.1rem; }
+
+.site-nav a {
+  position: relative;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.25rem;
+  transition: all 0.15s ease-in-out;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.15s ease-in-out;
+}
+
+.site-nav a:hover, .site-nav a:focus {
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  outline: none;
+}
+
+.site-nav a:hover::after { width: 80%; }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 0.45rem 0.5rem;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--white);
+  margin: 5px 0;
+  border-radius: 2px;
+}
+
+/* ===================== Hero (full-viewport, dark) ===================== */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 80px;
+  padding-bottom: 3rem;
+  text-align: center;
+  color: var(--white);
+  background: var(--gray-900);
+}
+
+/* Two background layers that slowly crossfade: the abstract network visual
+   and the Sydney harbour view (workshop location). */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.hero-bg-a {
+  background-image:
+    linear-gradient(135deg, rgba(2, 6, 17, 0.55), rgba(2, 6, 17, 0.55)),
+    url("images/hero-bg.svg");
+}
+
+.hero-bg-b {
+  background-image:
+    linear-gradient(135deg, rgba(2, 6, 17, 0.68), rgba(8, 10, 22, 0.72)),
+    url("images/sydney.jpg");
+  opacity: 0;
+  animation: hero-crossfade 10s ease-in-out infinite;
+}
+
+@keyframes hero-crossfade {
+  0%, 35%  { opacity: 0; }
+  48%, 85% { opacity: 1; }
+  98%, 100% { opacity: 0; }
+}
+
+#heroCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  width: 100%;
+  padding: 1rem 1.25rem 0;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 80px);
+}
+
+/* title block: vertically centered in the free space */
+.hero-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* tagline, date/venue, and buttons: pinned to the bottom of the hero */
+.hero-bottom { padding-bottom: 2.25rem; }
+
+.hero-conference {
+  display: inline-block;
+  font-family: var(--font-heading);
+  color: var(--accent);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  animation: pop-in 0.6s ease-out 0.15s both;
+}
+
+@keyframes pop-in {
+  0% { opacity: 0; transform: scale(0.8) translateY(10px); }
+  70% { opacity: 1; transform: scale(1.04) translateY(0); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+.hero-conference:hover { color: var(--white); text-decoration: none; }
+
+.hero h1 {
+  font-size: clamp(1.7rem, 4vw, 2.7rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.18;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Typewriter title: the hidden "ghost" copy reserves the final height so the
+   layout never shifts while the visible copy types itself out. Without JS
+   (or with reduced motion) the ghost stays visible as a normal title. */
+.typewriter { position: relative; }
+.typewriter .type-live { display: none; }
+.typewriter.js-typing .type-ghost { visibility: hidden; }
+.typewriter.js-typing .type-live { display: block; position: absolute; inset: 0; }
+
+.type-caret {
+  display: inline-block;
+  width: 3px;
+  height: 0.95em;
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  background: var(--accent);
+  animation: caret-blink 0.8s steps(1) infinite;
+  transition: opacity 0.6s ease;
+}
+.type-caret.done { opacity: 0; }
+
+@keyframes caret-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.hero-tagline {
+  font-size: 1.05rem;
+  color: var(--gray-300);
+  max-width: 700px;
+  margin: 0 auto 1rem;
+}
+
+.hero-melba {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 0.5rem 1.4rem;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1.75rem;
+}
+.hero-melba a { color: var(--accent); text-decoration: none; }
+.hero-melba a:hover { color: var(--white); }
+
+.hero-meta { color: var(--gray-300); font-size: 1rem; margin-bottom: 1.5rem; }
+.hero-meta span { margin: 0 0.5rem; }
+
+.hero-actions {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.hero-deadline {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ===================== Buttons ===================== */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.75rem 1.75rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover { text-decoration: none; transform: translateY(-1px); }
+
+.btn-primary { background: var(--primary); color: var(--white); box-shadow: var(--shadow-md); }
+.btn-primary:hover { background: var(--primary-dark); color: var(--white); }
+
+.btn-outline { border: 2px solid var(--white); color: var(--white); }
+.btn-outline:hover { background: var(--white); color: var(--gray-900); }
+
+.btn-disabled {
+  background: var(--gray-500);
+  color: var(--white);
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+/* ===================== MELBA banner ===================== */
+
+.melba-banner { background: var(--gray-900); padding: 2.5rem 0; }
+
+.melba-banner .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.melba-logo-box {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1rem 1.5rem;
+  flex-shrink: 0;
+}
+.melba-logo-box img { display: block; height: 56px; width: auto; }
+
+.melba-text { max-width: 640px; color: var(--gray-300); }
+.melba-text h3 { color: var(--white); margin: 0 0 0.4rem; font-size: 1.2rem; }
+.melba-text p { margin: 0; font-size: 0.98rem; }
+.melba-text a { color: var(--accent); font-weight: 600; }
+.melba-text a:hover { color: var(--white); }
+
+/* ===================== Sections ===================== */
+
+.section { padding: 4rem 0; }
+.section-alt { background: var(--gray-50); }
+
+.topic-list { columns: 2; column-gap: 2.5rem; }
+.topic-list li { break-inside: avoid; }
+
+/* ===================== Important dates cards ===================== */
+
+.dates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.date-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-left: 4px solid var(--primary);
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.date-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+.date-card.date-accent { border-left-color: var(--accent); }
+.date-card.date-tba { border-left-color: var(--gray-400); opacity: 0.85; }
+
+.date-event {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--gray-800);
+  font-size: 0.98rem;
+  margin-bottom: 0.2rem;
+}
+
+.date-value {
+  color: var(--primary);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.date-card.date-accent .date-value { color: var(--accent-dark); }
+.date-card.date-tba .date-value { color: var(--gray-500); }
+
+/* ===================== Agenda / program timeline ===================== */
+
+.agenda-timeline { max-width: 820px; margin: 1.5rem auto 0; }
+
+.agenda-event {
+  display: flex;
+  gap: 1.25rem;
+  padding: 0.7rem 1rem;
+  border-left: 3px solid var(--gray-200);
+  margin-left: 0.5rem;
+}
+
+.agenda-event:nth-child(odd) { background: var(--gray-50); }
+
+.agenda-event.agenda-highlight { border-left-color: var(--accent); }
+.agenda-event.agenda-talk { border-left-color: var(--primary); }
+
+.agenda-time {
+  flex-shrink: 0;
+  width: 120px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--gray-500);
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.agenda-title { color: var(--gray-700); }
+
+/* ===================== People cards ===================== */
+
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.person-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.1rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.person-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+.person-card h3 { margin: 0.9rem 0 0.15rem; font-size: 1.05rem; font-weight: 700; }
+
+.person-photo {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+  border: 3px solid var(--gray-100);
+  box-shadow: var(--shadow-md);
+}
+
+.placeholder-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-100);
+  color: var(--gray-400);
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+.person-affil { color: var(--gray-500); font-size: 0.9rem; margin-bottom: 0.3rem; }
+.person-topic { font-style: italic; font-size: 0.9rem; color: var(--gray-600); margin: 0; }
+
+.person-tag {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  background: rgba(245, 158, 11, 0.12);
+  border-radius: 999px;
+  padding: 0.15rem 0.7rem;
+}
+
+.committee-list {
+  columns: 3;
+  column-gap: 2rem;
+  list-style: none;
+  margin: 1.5rem 0 1rem;
+}
+
+/* ===================== Footer ===================== */
+
+.site-footer {
+  background: var(--gray-900);
+  color: var(--gray-400);
+  padding: 2.5rem 0 2rem;
+  font-size: 0.92rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.footer-logo { display: inline-block; margin-bottom: 0.75rem; }
+.footer-logo img { height: 48px; width: auto; display: block; }
+.footer-logo:hover { opacity: 0.8; }
+
+.footer-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.footer-section a { color: var(--gray-300); }
+.footer-section a:hover { color: var(--accent); }
+
+.footer-bottom {
+  border-top: 1px solid var(--gray-800);
+  padding-top: 1.25rem;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--gray-500);
+}
+
+.footer-bottom p { margin-bottom: 0.3rem; }
+.footer-credit { font-size: 0.72rem; color: var(--gray-600); }
+
+/* ===================== Mobile ===================== */
+
+@media (max-width: 860px) {
+  .nav-toggle { display: block; }
+
+  .site-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 0.5rem 0 0.75rem;
+  }
+
+  .site-nav.open { display: flex; }
+
+  .site-nav a { padding: 0.8rem 0.75rem; width: 100%; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+  .site-nav a::after { display: none; }
+
+  .topic-list { columns: 1; }
+  .committee-list { columns: 2; }
+
+  .hero { background-attachment: scroll; }
+
+  .agenda-time { width: 96px; }
+}
+
+@media (max-width: 480px) {
+  .committee-list { columns: 1; }
+  .section { padding: 2.75rem 0; }
+  .melba-banner .container { text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn:hover, .date-card:hover, .person-card:hover { transform: none; }
+  .hero-bg-b { animation: none; opacity: 0.5; }
+  .type-caret { animation: none; opacity: 0; }
+  .hero-conference { animation: none; }
+}

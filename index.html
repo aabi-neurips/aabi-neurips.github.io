@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NeurIPS 2026 Workshop on AI Agents for Biomedical Imaging and Multimodal Clinical Data, in collaboration with the MELBA journal - call for papers, program, speakers, and submission information.">
+  <title>AI Agents for Biomedical Imaging and Multimodal Clinical Data - NeurIPS 2026 Workshop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===================== Header / Navigation ===================== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#home" class="brand" aria-label="Home">
+        <img class="nav-logo-img" src="images/neurips-logo.svg" alt="NeurIPS">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="siteNav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#call-for-papers">Call for Papers</a>
+        <a href="#important-dates">Dates</a>
+        <a href="#speakers">Speakers</a>
+        <a href="#program">Program</a>
+        <a href="#organizers">Organizers</a>
+        <a href="#committee">Committee</a>
+        <a href="#submission">Submission</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== Hero / Home ===================== -->
+  <section id="home" class="hero">
+    <!-- Sydney photo: Peter Neaum, Wikimedia Commons, CC BY 3.0 -->
+    <div class="hero-bg hero-bg-a" aria-hidden="true"></div>
+    <div class="hero-bg hero-bg-b" aria-hidden="true"></div>
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero-content">
+      <div class="hero-center">
+        <a class="hero-conference" href="https://neurips.cc/" target="_blank" rel="noopener">NeurIPS 2026 Workshop</a>
+        <h1 class="typewriter" id="typeTitle" aria-label="AI Agents for Biomedical Imaging and Multimodal Clinical Data">
+          <span class="type-ghost" aria-hidden="true">AI Agents for Biomedical Imaging and Multimodal Clinical Data</span>
+          <span class="type-live" aria-hidden="true"><span class="type-text"></span><span class="type-caret"></span></span>
+        </h1>
+      </div>
+      <div class="hero-bottom">
+        <p class="hero-tagline">
+          Methods and benchmarks for AI agents in biomedical imaging and
+          multimodal clinical data.
+        </p>
+        <p class="hero-meta">
+          <!-- TODO: confirm exact date and location once announced by NeurIPS -->
+          <span>📅 December 2026 (date TBA)</span>
+          <span>📍 Sydney, Australia</span>
+          <span>🏛 One-day, in-person workshop</span>
+        </p>
+        <div class="hero-actions">
+          <a href="#call-for-papers" class="btn btn-primary">Call for Papers</a>
+          <a href="#submission" class="btn btn-outline">Submit a Paper</a>
+        </div>
+        <p class="hero-deadline">
+          Paper submission deadline: August 29, 2026 (AoE)
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- ===================== MELBA banner ===================== -->
+    <section class="melba-banner" aria-label="MELBA special issue">
+      <div class="container">
+        <div class="melba-logo-box">
+          <a href="https://www.melba-journal.org/" target="_blank" rel="noopener">
+            <img src="images/melba-logo.png" alt="MELBA - Machine Learning for Biomedical Imaging">
+          </a>
+        </div>
+        <div class="melba-text">
+          <h3>Publish your work: MELBA Special Issue</h3>
+          <p>
+            The workshop is paired with a special issue of
+            <a href="https://www.melba-journal.org/" target="_blank" rel="noopener">MELBA</a>,
+            the open-access journal of Machine Learning for Biomedical Imaging. Authors of
+            accepted workshop papers will be invited to submit extended manuscripts for
+            independent peer review - an archival publication pathway while the workshop
+            itself stays non-archival.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== About ===================== -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">About the Workshop</h2>
+        <p>
+          Biomedical imaging AI has produced strong methods for segmentation, registration,
+          reconstruction, detection, classification, and report generation. Yet most systems
+          remain organized around fixed inputs and outputs - a structure that fails to capture
+          real clinical workflows, where experts combine images with reports, prior studies,
+          measurements, laboratory values, EHR data, waveforms, pathology, video, and
+          longitudinal patient context.
+        </p>
+        <p>
+          This workshop focuses on <strong>AI agents for biomedical imaging and multimodal
+          clinical data</strong>. The central theme is how learning systems can organize
+          multi-step biomedical analyses around images, clinical context, specialized tools,
+          intermediate evidence, and human feedback - for example, systems that retrieve prior
+          studies, invoke segmentation or registration software, measure structures or lesions,
+          integrate reports or EHR variables, compare data across time, and expose intermediate
+          outputs for review.
+        </p>
+        <p>
+          The workshop brings together researchers in machine learning, computer vision,
+          biomedical imaging, multimodal learning, clinical AI, medical image computing,
+          biomedical informatics, and trustworthy AI to define shared task definitions,
+          evaluation protocols, and benchmarks for agentic image-analysis systems. It is
+          organized around a set of concrete open questions:
+        </p>
+        <ul>
+          <li>How should agents invoke and sequence specialized image-analysis tools - segmentation, registration, reconstruction - in ways that are reliable, auditable, and clinically meaningful?</li>
+          <li>How should rich multimodal clinical context (reports, EHR variables, laboratory findings, waveforms, longitudinal records) be grounded in and cross-referenced against image evidence?</li>
+          <li>How should intermediate outputs of multi-step analyses be surfaced, verified, and corrected before downstream steps consume them?</li>
+          <li>How should full systems be evaluated - not just on final accuracy, but on reasoning quality, uncertainty calibration, error recovery, robustness, and readiness for human oversight?</li>
+        </ul>
+        <h3>Topics of Interest</h3>
+        <ul class="topic-list">
+          <li>AI agents for image analysis, measurement, annotation, reporting, and cohort discovery</li>
+          <li>Multimodal systems combining images with reports, EHR data, notes, waveforms, omics, video, or longitudinal records</li>
+          <li>Tool-using systems that invoke segmentation, registration, reconstruction, retrieval, visualization, uncertainty estimation, or statistical analysis</li>
+          <li>Evaluation of grounding, reasoning, uncertainty, error recovery, robustness, and reproducibility</li>
+          <li>Human-in-the-loop systems for expert guidance and quality control</li>
+          <li>Datasets, benchmarks, software, and position papers defining reusable tasks for the community</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== Call for Papers ===================== -->
+    <section id="call-for-papers" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Call for Papers</h2>
+        <p class="section-subtitle">
+          Non-archival submissions through OpenReview, with an optional archival pathway
+          via the MELBA special issue.
+        </p>
+        <p>
+          We solicit submissions on all topics related to AI agents for biomedical imaging and
+          multimodal clinical data (see <a href="#about">topics above</a>). Appropriate
+          submissions include <strong>methods papers, benchmark or dataset papers,
+          software/resource papers, demos, and position papers</strong>.
+        </p>
+        <h3>Submission Tracks</h3>
+        <ul>
+          <li><strong>Full papers</strong> - up to 8 pages, with unlimited references.</li>
+          <li><strong>Short papers</strong> - up to 4 pages, with unlimited references.</li>
+        </ul>
+        <h3>Review and Presentation</h3>
+        <ul>
+          <li>Submissions are made through <strong>OpenReview</strong>; each submission will receive three reviews whenever possible.</li>
+          <li>Review criteria: relevance to agentic biomedical imaging or multimodal clinical data, technical quality, clarity, evaluation rigor, reproducibility, and appropriateness for workshop discussion.</li>
+          <li>Accepted submissions will be presented as posters, demos, or contributed talks.</li>
+          <li>The workshop is <strong>non-archival</strong>.</li>
+          <li>Organizers follow NeurIPS conflict-of-interest rules and will not assess submissions from conflicted authors.</li>
+        </ul>
+        <h3>MELBA Special Issue</h3>
+        <p>
+          The workshop is paired with a special issue of the
+          <a href="https://www.melba-journal.org/" target="_blank" rel="noopener">Machine Learning
+          for Biomedical Imaging (MELBA)</a> journal on AI agents for biomedical imaging and
+          multimodal clinical data. Authors of accepted workshop papers will be invited to submit
+          extended journal-length manuscripts to the special issue. Submission to MELBA is
+          optional and follows MELBA's independent editorial and peer-review process, providing
+          an archival pathway while preserving the non-archival status of workshop submissions.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== Important Dates ===================== -->
+    <section id="important-dates" class="section">
+      <div class="container">
+        <h2 class="section-title">Important Dates</h2>
+        <div class="dates-grid">
+          <div class="date-card">
+            <div class="date-event">Call for papers released</div>
+            <div class="date-value">July 2026</div>
+          </div>
+          <div class="date-card date-accent">
+            <div class="date-event">Paper submission deadline</div>
+            <div class="date-value">August 29, 2026 (AoE)</div>
+          </div>
+          <div class="date-card">
+            <div class="date-event">Notification of acceptance</div>
+            <div class="date-value">No later than September 29, 2026</div>
+          </div>
+          <div class="date-card">
+            <div class="date-event">Public schedule posted</div>
+            <div class="date-value">October 2026</div>
+          </div>
+          <div class="date-card date-tba">
+            <div class="date-event">NeurIPS workshop</div>
+            <div class="date-value">December 2026 (date TBA) <!-- TODO --></div>
+          </div>
+          <div class="date-card date-tba">
+            <div class="date-event">MELBA special issue submissions</div>
+            <div class="date-value">Target: January 2027</div>
+          </div>
+        </div>
+        <p class="note">All deadlines are Anywhere on Earth (AoE, UTC−12).</p>
+      </div>
+    </section>
+
+    <!-- ===================== Invited Speakers ===================== -->
+    <section id="speakers" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Invited Speakers</h2>
+        <p class="section-subtitle">
+          Invited speakers span AI agents and tool use, multimodal biomedical foundation
+          models, trustworthy machine learning, and expert-guided imaging workflows.
+          The final list is being confirmed.
+        </p>
+        <div class="people-grid">
+          <div class="person-card">
+            <img class="person-photo" src="images/xiaoxiaoli.jpg" alt="Xiaoxiao Li">
+            <h3><a href="https://xxlya.github.io/" target="_blank" rel="noopener">Xiaoxiao Li, PhD</a></h3>
+            <p class="person-affil">University of British Columbia</p>
+            <p class="person-topic">Agentic and tool-using systems for medical AI</p>
+            <span class="person-tag">To be confirmed</span>
+          </div>
+          <div class="person-card">
+            <img class="person-photo" src="images/qingyuzhao.jpg" alt="Qingyu Zhao">
+            <h3><a href="https://radiology.weill.cornell.edu/qingyu-zhao-phd" target="_blank" rel="noopener">Qingyu Zhao, PhD</a></h3>
+            <p class="person-affil">Cornell University</p>
+            <p class="person-topic">Multimodal biomedical foundation models and clinical data integration</p>
+            <span class="person-tag">To be confirmed</span>
+          </div>
+          <div class="person-card">
+            <img class="person-photo" src="images/koyejo.jpg" alt="Sanmi Koyejo">
+            <h3><a href="https://cs.stanford.edu/~sanmi/" target="_blank" rel="noopener">Sanmi Koyejo, PhD</a></h3>
+            <p class="person-affil">Stanford University</p>
+            <p class="person-topic">Trustworthy machine learning, evaluation, and reliability</p>
+            <span class="person-tag">To be confirmed</span>
+          </div>
+          <div class="person-card">
+            <img class="person-photo" src="images/gonzalez.jpg" alt="Camila Gonzalez">
+            <h3><a href="https://caim.meduniwien.ac.at/en/team/" target="_blank" rel="noopener">Camila Gonzalez, PhD</a></h3>
+            <p class="person-affil">Medical University of Vienna</p>
+            <p class="person-topic">Imaging workflows and expert-guided evaluation</p>
+            <span class="person-tag">To be confirmed</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Program ===================== -->
+    <section id="program" class="section">
+      <div class="container">
+        <h2 class="section-title">Program</h2>
+        <p class="section-subtitle">
+          A one-day, in-person workshop with invited talks, contributed talks, posters,
+          demos, and a structured discussion session - with substantial time reserved for
+          contributed work and community input.
+        </p>
+        <div class="agenda-timeline">
+          <div class="agenda-event agenda-highlight"><div class="agenda-time">09:00 – 09:10</div><div class="agenda-title">Opening remarks: scope, goals, and workshop process</div></div>
+          <div class="agenda-event agenda-talk"><div class="agenda-time">09:10 – 09:45</div><div class="agenda-title">Invited talk 1: AI agents, tool use, and multimodal systems</div></div>
+          <div class="agenda-event agenda-talk"><div class="agenda-time">09:45 – 10:30</div><div class="agenda-title">Contributed talks: methods and architectures</div></div>
+          <div class="agenda-event"><div class="agenda-time">10:30 – 11:00</div><div class="agenda-title">Coffee break</div></div>
+          <div class="agenda-event agenda-talk"><div class="agenda-time">11:00 – 11:35</div><div class="agenda-title">Invited talk 2: biomedical imaging and multimodal clinical data</div></div>
+          <div class="agenda-event agenda-talk"><div class="agenda-time">11:35 – 12:20</div><div class="agenda-title">Contributed talks: datasets, workflows, and resources</div></div>
+          <div class="agenda-event"><div class="agenda-time">12:20 – 13:40</div><div class="agenda-title">Lunch and poster session</div></div>
+          <div class="agenda-event agenda-talk"><div class="agenda-time">13:40 – 14:15</div><div class="agenda-title">Invited talk 3: trustworthy machine learning and evaluation</div></div>
+          <div class="agenda-event agenda-talk"><div class="agenda-time">14:15 – 15:00</div><div class="agenda-title">Invited talk 4: imaging workflows and expert-guided evaluation</div></div>
+          <div class="agenda-event"><div class="agenda-time">15:00 – 15:30</div><div class="agenda-title">Coffee break</div></div>
+          <div class="agenda-event agenda-highlight"><div class="agenda-time">15:30 – 16:30</div><div class="agenda-title">Structured discussion: benchmark and evaluation design</div></div>
+          <div class="agenda-event agenda-talk"><div class="agenda-time">16:30 – 17:15</div><div class="agenda-title">Contributed talks: reproducibility, safety, and human-in-the-loop systems</div></div>
+          <div class="agenda-event agenda-highlight"><div class="agenda-time">17:15 – 17:50</div><div class="agenda-title">Closing synthesis and MELBA special issue plan</div></div>
+        </div>
+        <p style="max-width: 820px; margin: 1.5rem auto 0;">
+          The structured discussion will divide participants into small groups focused on
+          definitions, benchmark tasks, multimodal datasets, tool-use evaluation, and human
+          oversight. Each group will produce a short set of open problems and recommendations,
+          which the organizers will summarize after the workshop.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== Organizers ===================== -->
+    <section id="organizers" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Organizers</h2>
+        <p class="section-subtitle">
+          The organizing team combines expertise in machine learning, biomedical imaging,
+          clinical imaging, multimodal systems, journal leadership, and community building.
+        </p>
+        <div class="people-grid">
+          <div class="person-card">
+            <img class="person-photo" src="images/adeli.jpg" alt="Ehsan Adeli">
+            <h3><a href="https://stanford.edu/~eadeli/" target="_blank" rel="noopener">Ehsan Adeli, PhD</a></h3>
+            <p class="person-affil">Stanford University</p>
+            <p class="person-topic">Biomedical imaging AI, multimodal learning, clinical translation</p>
+          </div>
+          <div class="person-card">
+            <img class="person-photo" src="images/arbel.jpg" alt="Tal Arbel">
+            <h3><a href="https://www.cim.mcgill.ca/~arbel/" target="_blank" rel="noopener">Tal Arbel, PhD</a></h3>
+            <p class="person-affil">McGill University</p>
+            <p class="person-topic">Medical image analysis, machine learning, neuroimaging; MELBA co-founder</p>
+          </div>
+          <div class="person-card">
+            <img class="person-photo" src="images/dalca.jpg" alt="Adrian V. Dalca">
+            <h3><a href="https://www.mit.edu/~adalca/" target="_blank" rel="noopener">Adrian V. Dalca, PhD</a></h3>
+            <p class="person-affil">MGH / Harvard Medical School / MIT</p>
+            <p class="person-topic">Biomedical imaging AI, open-source tools; MELBA Executive Editor</p>
+          </div>
+          <div class="person-card">
+            <img class="person-photo" src="images/maierhein.jpg" alt="Klaus Maier-Hein">
+            <h3><a href="https://www.dkfz.de/en/medical-image-computing" target="_blank" rel="noopener">Klaus Maier-Hein, PhD</a></h3>
+            <p class="person-affil">German Cancer Research Center (DKFZ)</p>
+            <p class="person-topic">Foundation models, benchmarking and validation, self-configuring AI systems</p>
+          </div>
+          <div class="person-card">
+            <img class="person-photo" src="images/langlotz.jpg" alt="Curtis Langlotz">
+            <h3><a href="https://profiles.stanford.edu/curtis-langlotz" target="_blank" rel="noopener">Curtis Langlotz, MD, PhD</a></h3>
+            <p class="person-affil">Stanford University</p>
+            <p class="person-topic">Clinical imaging, radiology AI, clinical workflow integration</p>
+          </div>
+          <div class="person-card">
+            <img class="person-photo" src="images/sabuncu.jpg" alt="Mert Sabuncu">
+            <h3><a href="https://sabuncu.engineering.cornell.edu/" target="_blank" rel="noopener">Mert Sabuncu, PhD</a></h3>
+            <p class="person-affil">Cornell University</p>
+            <p class="person-topic">Radiology AI, biomedical computation; MELBA co-founder and Executive Editor</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Program Committee ===================== -->
+    <section id="committee" class="section">
+      <div class="container">
+        <h2 class="section-title">Program Committee</h2>
+        <p class="section-subtitle">
+          Approximately 45–60 reviewers across machine learning, biomedical imaging,
+          multimodal learning, clinical AI, evaluation, and trustworthy AI. Review loads
+          are capped at approximately 3 papers per reviewer.
+        </p>
+        <ul class="committee-list">
+          <!-- TODO: add committee members as list items: <li>Name (Affiliation)</li> -->
+          <li>To be announced</li>
+        </ul>
+        <p style="text-align: center;">
+          Interested in reviewing for the workshop?
+          <a href="#contact">Contact us</a> to join the program committee.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== Submission ===================== -->
+    <section id="submission" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Submission</h2>
+        <p class="section-subtitle">
+          Papers are submitted through OpenReview. The submission portal link will be
+          posted here when it opens.
+        </p>
+        <p style="text-align: center;">
+          <!-- TODO: replace with the actual OpenReview submission link once available -->
+          <a href="#" class="btn btn-primary btn-disabled" aria-disabled="true">
+            Submission portal opening soon
+          </a>
+        </p>
+        <h3>Checklist</h3>
+        <ul>
+          <li>Use the NeurIPS 2026 LaTeX template.</li>
+          <li>Anonymize your submission (double-blind review).</li>
+          <li>Full papers: max 8 pages; short papers: max 4 pages (unlimited references).</li>
+          <li>Submissions are non-archival; extended versions may later be submitted to the MELBA special issue.</li>
+          <li>Submit by <strong>August 29, 2026 (AoE)</strong>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== Contact ===================== -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p style="text-align: center;">
+          For questions about the workshop, please email:
+          <!-- TODO: replace with the official workshop email -->
+          <a href="mailto:contact@example.org">contact@example.org</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <a href="https://neurips.cc/" target="_blank" rel="noopener" class="footer-logo" aria-label="NeurIPS">
+            <img src="images/neurips-logo.svg" alt="NeurIPS">
+          </a>
+          <div class="footer-title">AI Agents for Biomedical Imaging and Multimodal Clinical Data</div>
+          <p>NeurIPS 2026 Workshop, in collaboration with the
+            <a href="https://www.melba-journal.org/" target="_blank" rel="noopener">MELBA journal</a>.</p>
+        </div>
+        <div class="footer-section">
+          <div class="footer-title">Key dates</div>
+          <p>Submissions: August 29, 2026 (AoE)<br>Notifications: by September 29, 2026</p>
+        </div>
+        <div class="footer-section">
+          <div class="footer-title">Links</div>
+          <p>
+            <a href="#call-for-papers">Call for Papers</a><br>
+            <a href="https://neurips.cc/" target="_blank" rel="noopener">NeurIPS 2026</a><br>
+            <a href="https://www.melba-journal.org/" target="_blank" rel="noopener">MELBA Journal</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright © NeurIPS 2026. All rights reserved | AI Agents for Biomedical Imaging and Multimodal Clinical Data</p>
+        <p class="footer-credit">Sydney photo: Peter Neaum, Wikimedia Commons (CC BY 3.0)</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
