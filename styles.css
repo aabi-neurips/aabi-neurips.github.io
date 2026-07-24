@@ -550,11 +550,26 @@ li { margin-bottom: 0.4rem; }
   padding: 0.15rem 0.7rem;
 }
 
+.people-subheading {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-top: 3rem;
+  color: var(--gray-900);
+}
+
+.people-grid-narrow {
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .committee-list {
   columns: 3;
   column-gap: 2rem;
   list-style: none;
   margin: 1.5rem 0 1rem;
+  text-align: center;
 }
 
 /* ===================== Footer ===================== */

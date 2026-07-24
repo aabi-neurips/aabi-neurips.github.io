@@ -123,19 +123,19 @@
           organized around a set of concrete open questions:
         </p>
         <ul>
-          <li>How should agents invoke and sequence specialized image-analysis tools - segmentation, registration, reconstruction - in ways that are reliable, auditable, and clinically meaningful?</li>
-          <li>How should rich multimodal clinical context (reports, EHR variables, laboratory findings, waveforms, longitudinal records) be grounded in and cross-referenced against image evidence?</li>
-          <li>How should intermediate outputs of multi-step analyses be surfaced, verified, and corrected before downstream steps consume them?</li>
-          <li>How should full systems be evaluated - not just on final accuracy, but on reasoning quality, uncertainty calibration, error recovery, robustness, and readiness for human oversight?</li>
+          <li>How should agents <strong>invoke and sequence specialized image-analysis tools</strong> - segmentation, registration, reconstruction - in ways that are reliable, auditable, and clinically meaningful?</li>
+          <li>How should rich <strong>multimodal clinical context</strong> (reports, EHR variables, laboratory findings, waveforms, longitudinal records) be <strong>grounded in image evidence</strong>?</li>
+          <li>How should <strong>intermediate outputs</strong> of multi-step analyses be surfaced, verified, and corrected before downstream steps consume them?</li>
+          <li>How should full systems be <strong>evaluated</strong> - not just on final accuracy, but on reasoning quality, uncertainty calibration, error recovery, robustness, and readiness for <strong>human oversight</strong>?</li>
         </ul>
         <h3>Topics of Interest</h3>
         <ul class="topic-list">
-          <li>AI agents for image analysis, measurement, annotation, reporting, and cohort discovery</li>
-          <li>Multimodal systems combining images with reports, EHR data, notes, waveforms, omics, video, or longitudinal records</li>
-          <li>Tool-using systems that invoke segmentation, registration, reconstruction, retrieval, visualization, uncertainty estimation, or statistical analysis</li>
-          <li>Evaluation of grounding, reasoning, uncertainty, error recovery, robustness, and reproducibility</li>
-          <li>Human-in-the-loop systems for expert guidance and quality control</li>
-          <li>Datasets, benchmarks, software, and position papers defining reusable tasks for the community</li>
+          <li><strong>AI agents</strong> for image analysis, measurement, annotation, reporting, and cohort discovery</li>
+          <li><strong>Multimodal systems</strong> combining images with reports, EHR data, notes, waveforms, omics, video, or longitudinal records</li>
+          <li><strong>Tool-using systems</strong> that invoke segmentation, registration, reconstruction, retrieval, visualization, uncertainty estimation, or statistical analysis</li>
+          <li><strong>Evaluation</strong> of grounding, reasoning, uncertainty, error recovery, robustness, and reproducibility</li>
+          <li><strong>Human-in-the-loop systems</strong> for expert guidance and quality control</li>
+          <li><strong>Datasets, benchmarks, and software</strong>, and position papers defining reusable tasks for the community</li>
         </ul>
       </div>
     </section>
@@ -156,14 +156,19 @@
         </p>
         <h3>Submission Tracks</h3>
         <ul>
-          <li><strong>Full papers</strong> - up to 8 pages, with unlimited references.</li>
-          <li><strong>Short papers</strong> - up to 4 pages, with unlimited references.</li>
+          <!-- TODO: page limits are placeholders - final limits under discussion -->
+          <li><strong>Full papers</strong> - up to 8 pages (tentative; final page limits TBA), with unlimited references.</li>
+          <li><strong>Short papers</strong> - up to 4 pages (tentative; final page limits TBA), with unlimited references.</li>
+          <li>Papers must use the
+            <!-- TODO: update link when the NeurIPS 2026 style files page goes live -->
+            <a href="https://neurips.cc/Conferences/2026/PaperInformation/StyleFiles" target="_blank" rel="noopener">NeurIPS 2026 paper template and guidelines</a>.</li>
         </ul>
         <h3>Review and Presentation</h3>
         <ul>
           <li>Submissions are made through <strong>OpenReview</strong>; each submission will receive three reviews whenever possible.</li>
           <li>Review criteria: relevance to agentic biomedical imaging or multimodal clinical data, technical quality, clarity, evaluation rigor, reproducibility, and appropriateness for workshop discussion.</li>
           <li>Accepted submissions will be presented as posters, demos, or contributed talks.</li>
+          <li>Accepted papers will be hosted on <strong>OpenReview</strong> and linked and hosted directly on this <strong>workshop website</strong>.</li>
           <li>The workshop is <strong>non-archival</strong>.</li>
           <li>Organizers follow NeurIPS conflict-of-interest rules and will not assess submissions from conflicted authors.</li>
         </ul>
@@ -323,6 +328,16 @@
             <p class="person-topic">Foundation models, benchmarking and validation, self-configuring AI systems</p>
           </div>
           <div class="person-card">
+            <img class="person-photo" src="images/yuan.jpg" alt="Yixuan Yuan">
+            <h3><a href="https://www.ee.cuhk.edu.hk/~yxyuan/" target="_blank" rel="noopener">Yixuan Yuan, PhD</a></h3>
+            <p class="person-affil">The Chinese University of Hong Kong</p>
+            <p class="person-topic">Medical image analysis, surgical AI, foundation models</p>
+          </div>
+        </div>
+
+        <h3 class="people-subheading">Advisory Committee</h3>
+        <div class="people-grid people-grid-narrow">
+          <div class="person-card">
             <img class="person-photo" src="images/langlotz.jpg" alt="Curtis Langlotz">
             <h3><a href="https://profiles.stanford.edu/curtis-langlotz" target="_blank" rel="noopener">Curtis Langlotz, MD, PhD</a></h3>
             <p class="person-affil">Stanford University</p>
@@ -348,8 +363,10 @@
           are capped at approximately 3 papers per reviewer.
         </p>
         <ul class="committee-list">
-          <!-- TODO: add committee members as list items: <li>Name (Affiliation)</li> -->
-          <li>To be announced</li>
+          <!-- TODO: add remaining members (incl. Zane and Tal's postdoc) once names are confirmed -->
+          <li>Mohammad Abbasi (Stanford University)</li>
+          <li>Favour Nerrise (Stanford University)</li>
+          <li>More members to be announced</li>
         </ul>
         <p style="text-align: center;">
           Interested in reviewing for the workshop?
@@ -374,10 +391,12 @@
         </p>
         <h3>Checklist</h3>
         <ul>
-          <li>Use the NeurIPS 2026 LaTeX template.</li>
+          <li>Use the
+            <!-- TODO: update link when the NeurIPS 2026 style files page goes live -->
+            <a href="https://neurips.cc/Conferences/2026/PaperInformation/StyleFiles" target="_blank" rel="noopener">NeurIPS 2026 LaTeX template and guidelines</a>.</li>
           <li>Anonymize your submission (double-blind review).</li>
-          <li>Full papers: max 8 pages; short papers: max 4 pages (unlimited references).</li>
-          <li>Submissions are non-archival; extended versions may later be submitted to the MELBA special issue.</li>
+          <li>Full papers: up to 8 pages; short papers: up to 4 pages (tentative; final limits TBA - unlimited references).</li>
+          <li>Accepted papers will be hosted on OpenReview and on this website; submissions are non-archival, and extended versions may later be submitted to the MELBA special issue.</li>
           <li>Submit by <strong>August 29, 2026 (AoE)</strong>.</li>
         </ul>
       </div>
@@ -388,9 +407,8 @@
       <div class="container">
         <h2 class="section-title">Contact</h2>
         <p style="text-align: center;">
-          For questions about the workshop, please email:
-          <!-- TODO: replace with the official workshop email -->
-          <a href="mailto:contact@example.org">contact@example.org</a>
+          <!-- TODO: replace with the official workshop email alias once created -->
+          A workshop contact email will be announced here soon.
         </p>
       </div>
     </section>
