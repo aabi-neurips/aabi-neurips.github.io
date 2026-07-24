@@ -573,8 +573,9 @@ li { margin-bottom: 0.4rem; }
 }
 
 .pc-card {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
+  background: var(--gray-50);
+  border: 1px solid var(--gray-300);
+  border-top: 3px solid var(--primary);
   border-radius: 0.5rem;
   padding: 0.65rem 0.75rem;
   text-align: center;
